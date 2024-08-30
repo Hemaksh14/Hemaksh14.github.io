@@ -141,7 +141,8 @@ h5 {
   line-height: inherit;
   display: block;
   opacity: 0;
-  overflow: visible;
+  /* overflow: visible; */
+  overflow: auto;
   position: absolute;
   top: 0;
   right: 0;
