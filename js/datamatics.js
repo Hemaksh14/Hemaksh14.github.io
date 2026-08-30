@@ -259,7 +259,7 @@
   }
 
   function drawSine(t, bend) {
-    var accent = getComputedStyle(root).getPropertyValue("--dm-accent").trim() || "#2bf0b0";
+    var accent = getComputedStyle(document.documentElement).getPropertyValue("--dm-accent").trim() || "#2bf0b0";
     ctx.beginPath();
     ctx.strokeStyle = accent;
     ctx.lineWidth = 1.5;
