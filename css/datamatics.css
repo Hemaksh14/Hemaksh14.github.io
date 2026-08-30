@@ -27,15 +27,6 @@
   --dm-fs-icon-lg: 1.2rem;
 }
 
-html.dm-inverted {
-  --dm-bg: #f5f5f2;
-  --dm-fg: #05070a;
-  --dm-fg-dim: rgba(5, 7, 10, 0.50);
-  --dm-fg-faint: rgba(5, 7, 10, 0.14);
-  --dm-accent: #0c8c64;
-  --dm-line: rgba(5, 7, 10, 0.22);
-}
-
 * { box-sizing: border-box; }
 
 body, body:not(.dark-mode) {
@@ -94,24 +85,6 @@ a:hover, a:focus { color: var(--dm-accent); }
 #dm-scanline-trail-1 { z-index: 899; opacity: 0.35; transition-duration: 0.35s; }
 #dm-scanline-trail-2 { z-index: 898; opacity: 0.14; transition-duration: 0.65s; }
 
-/* ---- invert: the world's own "full-frame negative" motion, made literal ---- */
-#dm-flash {
-  position: fixed;
-  inset: 0;
-  background: var(--dm-fg);
-  z-index: 950;
-  pointer-events: none;
-  opacity: 0;
-}
-#dm-flash.is-flashing { animation: dm-flash-frame 0.5s steps(2); }
-@keyframes dm-flash-frame {
-  0% { opacity: 0; }
-  25% { opacity: 0.85; }
-  50% { opacity: 0; }
-  75% { opacity: 0.4; }
-  100% { opacity: 0; }
-}
-
 /* ---- navbar ---- */
 .navbar, .navbar[class*="headroom--not-top"] {
   background: color-mix(in srgb, var(--dm-bg) 88%, transparent);
@@ -144,19 +117,6 @@ a:hover, a:focus { color: var(--dm-accent); }
 .navbar-nav .nav-link:hover span::before, .navbar-nav .nav-link:focus span::before { transform: translateX(2px) !important; color: var(--dm-accent); }
 .navbar-nav .nav-link:hover span::after, .navbar-nav .nav-link:focus span::after { transform: translateX(-2px) !important; color: var(--dm-accent); }
 .navbar-toggler-icon { background-color: var(--dm-fg); }
-
-#dm-invert-toggle {
-  font-family: var(--dm-mono);
-  font-size: var(--dm-fs-micro);
-  letter-spacing: 0.1em;
-  background: transparent;
-  border: 1px solid var(--dm-line);
-  color: var(--dm-fg-dim);
-  padding: 0.35em 0.8em;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-#dm-invert-toggle:hover { color: var(--dm-accent); border-color: var(--dm-accent); }
 
 /* ---- hero: one authored load-in, staggered by element, never repeats ---- */
 @keyframes dm-rise-in {
@@ -374,7 +334,6 @@ a:hover, a:focus { color: var(--dm-accent); }
 /* ---- reduced motion: freeze the field, no strobing ---- */
 @media (prefers-reduced-motion: reduce) {
   #dm-scanline { transition: none !important; animation: none !important; opacity: 0.85 !important; }
-  #dm-flash { display: none !important; }
   * { scroll-behavior: auto !important; }
   *, *::before, *::after {
     animation-duration: 0.001ms !important;

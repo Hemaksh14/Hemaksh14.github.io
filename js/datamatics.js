@@ -59,24 +59,6 @@
     skillsTable.classList.add("is-printed");
   }
 
-  /* ---- invert toggle: full-frame negative, the world's own motion vocabulary ---- */
-  var invertBtn = document.getElementById("dm-invert-toggle");
-  var root = document.documentElement;
-  var flashEl = document.getElementById("dm-flash");
-  if (invertBtn) {
-    var saved = localStorage.getItem("dm-inverted");
-    if (saved === "1") root.classList.add("dm-inverted");
-    invertBtn.addEventListener("click", function () {
-      root.classList.toggle("dm-inverted");
-      localStorage.setItem("dm-inverted", root.classList.contains("dm-inverted") ? "1" : "0");
-      if (flashEl && !reduceMotion) {
-        flashEl.classList.remove("is-flashing");
-        void flashEl.offsetWidth; /* restart the keyframe on repeated clicks */
-        flashEl.classList.add("is-flashing");
-      }
-    });
-  }
-
   /* ---- interactive dot fields: canvas-based with cursor reactivity ---- */
   var fieldSections = document.querySelectorAll("[data-dm-field]");
   var activeFields = [];
