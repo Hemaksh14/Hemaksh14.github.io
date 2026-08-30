@@ -1,0 +1,53 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "css/datamatics.css"
+        ],
+        "createdAt": "2026-08-26T19:48:04.920Z",
+        "reason": "Intentional manga halftone screening effect for anime easter egg layer"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          "css/datamatics.css"
+        ],
+        "createdAt": "2026-08-27T01:47:13.053Z",
+        "reason": "Easter egg overlays (anime reveal, whiteboard) intentionally use non-design-system colors for temporary experiences"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          "css/datamatics.css"
+        ],
+        "createdAt": "2026-08-27T01:47:19.969Z",
+        "reason": "Easter egg anime reveal uses editorial typography at intentionally extreme sizes outside the design system ramp"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          "css/dm-anime-reveal.css"
+        ],
+        "createdAt": "2026-08-27T02:46:30.073Z",
+        "reason": "Anime reveal is a temporary illustrated overlay (PRD-specified palette: cyan/sakura/coral) that intentionally breaks the portfolio's monochrome+mint design system for a few seconds; scoped local --ar-* tokens, never leaks to portfolio chrome"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          "css/dm-anime-reveal.css"
+        ],
+        "createdAt": "2026-08-27T02:46:35.408Z",
+        "reason": "Editorial typography in the anime reveal (I'M INTO ANIME.) uses oversized clamp() sizes intentionally outside the portfolio's body-copy type ramp, per PRD editorial-typography spec"
+      }
+    ]
+  }
+}

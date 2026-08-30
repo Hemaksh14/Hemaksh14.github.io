@@ -20,12 +20,35 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="css/tooplate-style.css">
-    
+    <link rel="stylesheet" href="css/datamatics.css">
+    <link rel="stylesheet" href="css/dm-anime-reveal.css">
 
+    <script>document.documentElement.classList.add('js');</script>
   </head>
   <body>
+    <!--
+      THESIS: a career read as data, not decoration — the field itself is the timeline.
+      OWN-WORLD: pure black/white barcode-column field, one reserved signal accent (mint),
+        monospace at data density, bracketed labels, no grey/gradient/icon-tile.
+      STORY: visitor scans a live data field; scrolling advances a scan line down the page,
+        snapping each era/project into focus while the rest dims to a faint bar pattern.
+      FIRST VIEWPORT: full-bleed canvas barcode field + sine curve behind a monospace
+        name/role readout, left-aligned, CTA as a bracketed button.
+      FORM: Datamatics (data-sublime, Ikeda-lineage), grounded direction 6 of 7,
+        seed key 1055184f.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish
+        review, the verdict, and DESIGN.md.
+    -->
+    <div id="dm-scanline-trail-2" aria-hidden="true"></div>
+    <div id="dm-scanline-trail-1" aria-hidden="true"></div>
+    <div id="dm-scanline" aria-hidden="true"></div>
+    <div id="dm-flash" aria-hidden="true"></div>
 
     <!-- 
         Navy	            #0a192f 
@@ -58,7 +81,7 @@
    -->
 
     <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="index.html"><i class='uil uil-user'></i> Hemaksh C</a>
 
@@ -81,6 +104,9 @@
                         <a href="#resume" class="nav-link"><span data-hover="Resume">Resume</span></a>
                     </li>
                     <li class="nav-item">
+                        <a href="#skills" class="nav-link"><span data-hover="Skills">Skills</span></a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
                     </li>
                     <li class="nav-item">
@@ -91,10 +117,7 @@
 
                 <ul class="navbar-nav ml-lg-auto">
                     <div class="nav-item d-flex align-items-center ml-lg-4">
-                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
-                        <i class="color-mode-icon"></i>
-                        Color mode
-                      </div>
+                      <button id="dm-invert-toggle" type="button" aria-label="Invert field">INVERT</button>
                     </div>
                 </ul>
             </div>
@@ -103,6 +126,7 @@
 
     <!-- ABOUT -->
     <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
+        <canvas id="dm-field" aria-hidden="true"></canvas>
         <div class="container">
             <div class="row">
                 
@@ -118,28 +142,28 @@
                         </style>
 
                         <div class="header-icons">
-                            <a href="https://github.com/Hemaksh14" target="_blank" class="icon" style="color: aquamarine; font-size: 24px;"><i class="uil uil-github-alt"></i></a>
-                            <a href="mailto:chaturvedihemaksh@gmail.com" target="_blank" class="icon" style="color: aquamarine; font-size: 25px;"><i class="uil uil-envelope"></i></a>
-                            <a href="https://www.linkedin.com/in/hemaksh-chaturvedi/" target="_blank" class="icon" style="color: aquamarine; font-size: 26px;"><i class="uil uil-linkedin-alt"></i></a>
+                            <a href="https://github.com/Hemaksh14" target="_blank" class="icon"><i class="uil uil-github-alt"></i></a>
+                            <a href="mailto:chaturvedihemaksh@gmail.com" target="_blank" class="icon"><i class="uil uil-envelope"></i></a>
+                            <a href="https://www.linkedin.com/in/hemaksh-chaturvedi/" target="_blank" class="icon"><i class="uil uil-linkedin-alt"></i></a>
                         </div>
-                        <small class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small>
+                        <small class="small-text">record found <span class="mobile-block">// 1 profile matched</span></small>
                         <h1 class="animated animated-text">
                             <span class="mr-2">Hey folks, I'm</span>
                                 <div class="animated-info">
                                     <span class="animated-item">Hemaksh Chaturvedi</span>
+                                    <span class="animated-item">a Production Engineering Lead</span>
                                     <span class="animated-item">a Quant Developer</span>
                                     <span class="animated-item">a Software Developer</span>
-                                    <span class="animated-item">a ML Engineer</span>
+                                    <span class="animated-item">an ML Engineer</span>
                                     <span class="animated-item">a Full Stack Developer</span>
-                                    <span class="animated-item">a Data Scientist</span>
                                 </div>
                         </h1>
-                        <h4>📍New York</h4>
-                        <p>I have honed my skills in <b>quantitative analysis, machine learning, software development, and algorithm optimization.</b></p>
-                        
+                        <h4>New York, NY</h4>
+                        <p>Range across <b>production/reliability engineering, quantitative development, machine learning, and full-stack systems</b> — depth in each, proven on real systems, not just listed as a skill.</p>
+
                         <div class="custom-btn-group mt-4">
                           <a href="resume/Hemaksh-Chaturvedi.pdf" download="Hemaksh-Chaturvedi-Resume.pdf" target="_blank" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Download Resume</a>
-                          
+
                         </div>
                     </div>
                 </div>
@@ -155,7 +179,7 @@
     </section>
 
     <!-- PROJECTS -->
-    <section class="project py-5" id="project">
+    <section class="project py-5 dm-section" id="project" data-dm-field="dense">
         <div class="container">
 
             <style>
@@ -197,7 +221,8 @@
                   <div class="col-lg-11 text-center mx-auto col-12">
 
                       <div class="col-lg-8 mx-auto">
-                        <h2>Projects</h2>
+                        <div class="dm-index">field 03 / projects</div>
+                        <h2><span class="dm-num">03</span>Projects</h2>
                       </div>
 
                       <div class="">
@@ -296,14 +321,38 @@
     
 
     <!-- FEATURES -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+    <section class="resume py-5 d-lg-flex justify-content-center align-items-center dm-section" id="resume" data-dm-field="sparse">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-6 col-12">
-                  <h2 class="mb-4">Experiences</h2>
+                  <div class="dm-index">field 01 / experience</div>
+                  <h2 class="mb-4"><span class="dm-num">01</span>Experience</h2>
 
                     <div class="timeline">
+                        <div class="timeline-wrapper">
+                             <div class="timeline-yr">
+                                  <span>2025—</span>
+                             </div>
+                             <div class="timeline-info">
+                                  <h3><span>Software Developer / Production Engineering Shift Lead</span><small><a href="https://www2.deloitte.com/" target="_blank">Deloitte (via Neotek Solutions)</a></small></h3>
+                                  <p>Lead production reliability for 190+ websites and 1,600+ applications serving 8M+ users and 36M monthly requests, sustaining 90%+ availability.</p>
+                                  <p>Designed a health-check-driven failover architecture for NLP chatbot services, reducing service outages by 30%.</p>
+                                  <p>Rebuilt the authorization layer on dynamic AWS Lambda config, cutting operational overhead by 60%.</p>
+                             </div>
+                        </div>
+
+                        <div class="timeline-wrapper">
+                             <div class="timeline-yr">
+                                  <span>2025</span>
+                             </div>
+                             <div class="timeline-info">
+                                  <h3><span>Software Developer</span><small><a href="https://new.mta.info/" target="_blank">Metropolitan Transportation Authority</a></small></h3>
+                                  <p>Led migration of a mission-critical bus yard management platform from Angular to React + TypeScript, improving frontend performance by 25%.</p>
+                                  <p>Deployed stateless RESTful APIs on AWS via Docker + CI/CD, cutting response errors 18% and deployment time 35%.</p>
+                             </div>
+                        </div>
+
                         <div class="timeline-wrapper">
                              <div class="timeline-yr">
                                   <span>2024</span>
@@ -358,7 +407,8 @@
                 </div>
 
                 <div class="col-lg-6 col-12">
-                  <h2 class="mb-4 mobile-mt-2">Educations</h2>
+                  <div class="dm-index">field 02 / education</div>
+                  <h2 class="mb-4 mobile-mt-2"><span class="dm-num">02</span>Education</h2>
 
                     <div class="timeline">
                         <div class="timeline-wrapper">
@@ -399,10 +449,26 @@
         </div>
     </section>
 
-    
+    <!-- SKILLS -->
+    <section class="dm-section" id="skills" data-dm-field="minimal">
+        <div class="dm-wrap">
+            <div class="dm-index">field 04 / skills</div>
+            <h2><span class="dm-num">04</span>Skills</h2>
+            <table class="dm-skills-table">
+                <tbody>
+                    <tr><td>Languages</td><td>Python, Java, C++, C#, C, JavaScript, TypeScript, React, R</td></tr>
+                    <tr><td>Backend &amp; APIs</td><td>RESTful Services, Spring Boot, Flask, Microservices, Multi-threading, GraphQL</td></tr>
+                    <tr><td>Cloud &amp; DevOps</td><td>AWS (Lambda, S3, CloudWatch, WAF, ElasticSearch, Lex, Rekognition, API Gateway, CloudFormation), Docker, CI/CD</td></tr>
+                    <tr><td>Databases</td><td>PostgreSQL, MySQL, MongoDB, SQL, distributed systems fundamentals, schema design</td></tr>
+                    <tr><td>AI / ML</td><td>TensorFlow, PyTorch, NLP systems, model optimization</td></tr>
+                    <tr><td>Tools</td><td>Git, GitHub, Jira, Confluence, Agile, technical documentation</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
     <section id="contact" class="contact-section py-5">
-      <!-- <h2 class="section-number">What's Next?</h2> -->
+      <div class="dm-index" style="justify-content:center;">field 05 / contact</div>
       <h1 class="contact-title">Get In Touch</h1>
       <p class="contact-description">
           Always happy to chat!
@@ -423,9 +489,8 @@
           <div class="container">
                <div class="row">
 
-                    <div class="col-lg-12 col-12">                                
-                        <p class="copyright-text text-center"></p>
-                        <p class="copyright-text text-center"></p>
+                    <div class="col-lg-12 col-12">
+                        <p class="copyright-text text-center">// end of field — Hemaksh Chaturvedi, 2026</p>
                     </div>
                     
                </div>
@@ -440,6 +505,9 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/datamatics.js"></script>
+    <script src="js/dm-anime-reveal.js"></script>
+    <script src="js/dm-rain.js"></script>
 
 
     <div class="email-container">
